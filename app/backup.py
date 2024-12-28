@@ -684,7 +684,7 @@ def upload_file_to_storj(file_path, access_key, secret_key, storj_endpoint):
 # -----------------------------------------------------------------------------------------------
 
 #--------------------------------New Backblaze B2 ------------------------------------------
-def upload_file_to_backblaze(file_path, app_key_id, app_key, bucket_name="Bitwarden-Drive-Backup"):
+def upload_file_to_backblaze(file_path, app_key_id, app_key, bucket_name):
     
     try:
         # Initialize Backblaze B2 API
@@ -1359,7 +1359,7 @@ def backup_bitwarden(env_vars, secrets, drive_service):
             zip_filepath,
             app_key_id=secrets["B2_APP_KEY_ID"],
             app_key=secrets["B2_APP_KEY"],
-            bucket_name="Bitwarden-Drive-Backup"
+            bucket_name=secrets["B2_BUCKET_NAME"]
         )
         pbar.update(progress_stages[10]["update"])  # Actualiza la barra de progreso si usas tqdm
       except Exception as e:
